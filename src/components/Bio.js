@@ -3,7 +3,7 @@ import { View, Text, Alert } from 'react-native'
 import ReadMore from '@expo/react-native-read-more-text';
 import ParsedText from 'react-native-parsed-text';
 import PropTypes from 'prop-types';
-import Avatar from './Avatar'
+import { Avatar } from './'
 import styles from './styles/BioStyles'
 
 export default class Bio extends Component {

@@ -7,6 +7,9 @@ import {
 import { slidesActions, gridActions } from './'
 
 export const getUser = () => {
+  const {getSlides} = slidesActions
+  const {getGrid} = gridActions
+
   return dispatch => {
     dispatch({ type: USER_FETCH_START });
     api.post('classes/User/318381', {
@@ -16,8 +19,8 @@ export const getUser = () => {
     })
     .then(response => {
       if(response.ok) {
-        dispatch(slidesActions.getSlides());
-        dispatch(gridActions.getGrid());
+        dispatch(getSlides());
+        dispatch(getGrid());
         if(response.data) {
           dispatch({ type: FETCHED_USER, data: response.data });
         } else {

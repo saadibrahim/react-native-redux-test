@@ -2,14 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { View, Text, StatusBar, ScrollView } from 'react-native'
 import { userActions } from '../actions'
-import Loading from '../components/Loading'
-import Navbar from '../components/Navbar'
-import Bio from '../components/Bio'
-import Slider from '../components/Slider'
-import Grid from '../components/Grid'
-import { getUserData } from '../selectors/user'
-import { getSlides } from '../selectors/slides'
-import { getGrid } from '../selectors/grid'
+import { Loading, Bio, Navbar, Slider, Grid } from '../components'
+import { userSelectors, slideSelectors, gridSelectors } from '../selectors'
 
 class User extends Component {
   constructor(props) {
@@ -49,9 +43,9 @@ class User extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    user: getUserData(state),
-    slides: getSlides(state),
-    grid: getGrid(state)
+    user: userSelectors.getUserData(state),
+    slides: slideSelectors.getSlides(state),
+    grid: gridSelectors.getGrid(state)
   }
 }
 
